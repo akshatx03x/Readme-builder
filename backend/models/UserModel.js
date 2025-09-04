@@ -18,6 +18,17 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    password: {
+      type: String,
+      required: function() {;
+      },
+    },
+    provider: {
+      type: String,
+      enum: ["manual", "google", "github"],
+      default: "manual",
+    },
+    githubToken: { type: String, select: false }, 
   },
   { timestamps: true }
 );
