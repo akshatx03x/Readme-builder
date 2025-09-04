@@ -93,9 +93,9 @@ const App = () => {
         {/* Logo Placeholder */}
         <div className="flex justify-center mb-6">
           <img
-            src="https://via.placeholder.com/100x100?text=Logo"
+            src="https://th.bing.com/th/id/R.93b95738cb630f899bacf7dd835b5ad5?rik=NabHb25auWhA2w&riu=http%3a%2f%2fwww.pxwall.com%2fwp-content%2fuploads%2f2018%2f10%2fSunset-4k-Ultra-HD-Wallpaper.jpg&ehk=PRFcf2yTsmb1dAoamyEjJ%2f5sV587KlMWlKKiSo6Kp3U%3d&risl=&pid=ImgRaw&r=0"
             alt="Logo"
-            className="h-16 w-16 rounded-full"
+            className="h-50 w-100 rounded-2xl"
           />
         </div>
 
