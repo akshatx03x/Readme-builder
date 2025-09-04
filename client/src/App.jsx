@@ -88,27 +88,27 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-950 to-zinc-900 flex items-center justify-center p-4 font-inter">
+      <div className="bg-zinc-800/20 backdrop-blur-lg shadow-xl rounded-3xl p-8 w-full max-w-md border border-zinc-700/40">
         {/* Logo Placeholder */}
         <div className="flex justify-center mb-6">
           <img
             src="https://via.placeholder.com/100x100?text=Logo"
             alt="Logo"
-            className="h-16 w-16"
+            className="h-16 w-16 rounded-full"
           />
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 text-center mb-2">
+        <h1 className="text-3xl font-bold text-zinc-100 text-center mb-2 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
           Welcome Back
         </h1>
-        <p className="text-gray-600 text-center mb-8">
+        <p className="text-zinc-400 text-center mb-8 text-base">
           Sign in to your account
         </p>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-50 text-red-700 p-3 rounded-lg mb-6 text-sm">
+          <div className="bg-red-950/50 text-red-400 p-3 rounded-xl mb-6 text-sm border border-red-600/30">
             {error}
           </div>
         )}
@@ -117,7 +117,7 @@ const App = () => {
           {/* Google Login Button */}
           <button
             onClick={googleLogin}
-            className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 py-3 rounded-lg font-medium transition duration-200 shadow-sm"
+            className="w-full flex items-center justify-center gap-3 bg-zinc-800/50 backdrop-blur-md border border-zinc-600/50 hover:bg-zinc-700/50 text-zinc-100 py-3 rounded-xl font-medium transition-all duration-200 shadow-md hover:shadow-lg"
           >
             <img
               src="https://www.svgrepo.com/show/355037/google.svg"
@@ -130,7 +130,7 @@ const App = () => {
           {/* GitHub Login Button */}
           <button
             onClick={gitLogin}
-            className="w-full flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-lg font-medium transition duration-200 shadow-sm"
+            className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-medium transition-all duration-200 shadow-md hover:shadow-lg"
           >
             <img
               src="https://www.svgrepo.com/show/512317/github-142.svg"
@@ -141,13 +141,13 @@ const App = () => {
           </button>
         </div>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-zinc-500 mt-6">
           By signing in, you agree to our{' '}
-          <a href="#" className="text-blue-600 hover:underline">
+          <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors duration-200">
             Terms of Service
           </a>{' '}
           and{' '}
-          <a href="#" className="text-blue-600 hover:underline">
+          <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors duration-200">
             Privacy Policy
           </a>
         </p>
