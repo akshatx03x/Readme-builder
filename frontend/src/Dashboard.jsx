@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import GeminiChatUI from "./components/GeminiUi.jsx";
+import { authService } from "./services/authService";
 
 const Dashboard = () => {
   const [repos, setRepos] = useState([]);
@@ -12,13 +13,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       setError("");
-      const response = await fetch("http://localhost:3000/api/auth/logout", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (!response.ok) throw new Error("Failed to log out");
+      await authService.logout();
 
       localStorage.removeItem("token");
       navigate("/login");
@@ -31,22 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/auth/repos", {
-          method: "GET",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        });
-
-        if (!response.ok) {
-          if (response.status === 401 || response.status === 403) {
-            navigate("/login");
-            return;
-          }
-          const errorText = await response.text();
-          throw new Error(errorText || `HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
+        const data = await authService.getRepos();
         if (data.success && Array.isArray(data.repos)) {
           setRepos(data.repos);
         } else {
@@ -54,6 +34,10 @@ const Dashboard = () => {
         }
       } catch (err) {
         console.error("Fetch Error:", err.message);
+        if (err.response?.status === 401 || err.response?.status === 403) {
+          navigate("/login");
+          return;
+        }
         setError(err.message);
       } finally {
         setLoading(false);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { auth, googleProvider, githubProvider } from './utils/firebase';
 import { signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { authService } from './services/authService';
 
 const App = () => {
   const [error, setError] = useState('');
@@ -20,19 +21,7 @@ const App = () => {
         phoneNumber: user.phoneNumber,
       };
 
-      const apiResponse = await fetch('http://localhost:3000/api/auth/google-login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData),
-      });
-
-      if (!apiResponse.ok) {
-        const errorData = await apiResponse.json();
-        throw new Error(errorData.message || 'Failed to login with Google');
-      }
-
-      const responseData = await apiResponse.json();
+      const responseData = await authService.googleLogin(userData);
       console.log('Google Login Success:', responseData);
 
       localStorage.setItem('token', responseData.token);
@@ -62,19 +51,7 @@ const App = () => {
         provider: 'github',
       };
 
-      const apiResponse = await fetch('http://localhost:3000/api/auth/google-login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData),
-      });
-
-      if (!apiResponse.ok) {
-        const errorData = await apiResponse.json();
-        throw new Error(errorData.message || 'Failed to login with GitHub');
-      }
-
-      const responseData = await apiResponse.json();
+      const responseData = await authService.googleLogin(userData);
       console.log('GitHub Login Success:', responseData);
 
       localStorage.setItem('token', responseData.token);

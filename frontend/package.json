@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
+    "axios": "^1.11.0",
+    "byte": "file:..",
     "firebase": "^12.2.1",
     "framer-motion": "^12.23.12",
     "mongoose": "^8.18.0",
