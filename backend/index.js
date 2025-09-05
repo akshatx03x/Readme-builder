@@ -6,12 +6,12 @@ import AuthRoute from "./routes/Auth.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 
-dotenv.config()
+dotenv.config();
 
 const app = express();
 
 const PORT = process.env.PORT || 3000; 
-const __dirname= path.resolve();
+const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -30,14 +30,15 @@ if (process.env.NODE_ENV === "production") {
 
     app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-    })
+    });
 }
 
-
-mongoose.connect(process.env.MONGODB_CONN).then(() => {
-    console.log("Database Connection Successful");
-}).catch(err => console.log("Database Connection lost", err))
+mongoose.connect(process.env.MONGODB_CONN)
+    .then(() => {
+        console.log("Database Connection Successful");
+    })
+    .catch(err => console.log("Database Connection lost", err));
 
 app.listen(PORT, function() {
     console.log("Server is running on PORT: ", PORT);
-})
+});
