@@ -86,8 +86,14 @@
     };
 
     return (
+      
       <div className="min-h-screen bg-gray-950 text-gray-100 flex items-center justify-center p-4 font-inter relative overflow-hidden">
         {/* Background radial gradient */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
         <div className="absolute inset-0 z-0 opacity-80" style={{
           background: `radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.08) 0%, rgba(16, 185, 129, 0.05) 50%, rgba(5, 5, 10, 0) 100%)`,
           filter: 'blur(100px)'

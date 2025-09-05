@@ -132,7 +132,7 @@ const Dashboard = () => {
                   href={repo.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-violet-500 text-sm font-medium hover:text-blue-400 transition-colors duration-200 mt-3 block"
+                  className="text-blue-500 text-sm font-medium hover:text-blue-400 transition-colors duration-200 mt-3 block"
                 >
                   View on GitHub &rarr;
                 </a>
