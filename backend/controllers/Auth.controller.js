@@ -145,6 +145,16 @@ export const getUser = async (req, res) => {
   // ... existing imports and functions ...
 
 // Fetch GitHub repos of logged-in user
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie('token');
+    res.status(200).json({ success: true, message: 'Logged out successfully' });
+  } catch (error) {
+    console.error('❌ Logout error:', error);
+    res.status(500).json({ success: false, message: 'Server error', error: error.message });
+  }
+};
+
 export const getRepos = async (req, res) => {
   try {
     // 1. Get JWT from cookies
