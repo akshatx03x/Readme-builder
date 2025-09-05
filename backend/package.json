@@ -4,10 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "build-frontend": "cd ../frontend && npm run build",
-    "start-prod": "npm run build-frontend && NODE_ENV=production node src/index.js"
+    "start-prod": "npm run build-frontend && NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "",
