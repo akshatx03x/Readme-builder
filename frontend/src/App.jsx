@@ -33,12 +33,12 @@ const App = () => {
       }
 
       const responseData = await apiResponse.json();
-      console.log('✅ Google Login Success:', responseData);
+      console.log('Google Login Success:', responseData);
 
       localStorage.setItem('token', responseData.token);
       navigate('/');
     } catch (error) {
-      console.error('❌ Google login error:', error.message);
+      console.error('Google login error:', error.message);
       setError(error.message);
     }
   };
@@ -75,7 +75,7 @@ const App = () => {
       }
 
       const responseData = await apiResponse.json();
-      console.log('✅ GitHub Login Success:', responseData);
+      console.log('GitHub Login Success:', responseData);
 
       localStorage.setItem('token', responseData.token);
       navigate('/');

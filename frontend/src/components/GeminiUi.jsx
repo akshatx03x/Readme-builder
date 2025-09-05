@@ -377,7 +377,7 @@ Output should be *valid Markdown*, ready to copy-paste into a GitHub repo.
         )}
         {!isSearching && (
           <div className="w-full text-center mb-10">
-            <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600 tracking-tight animate-fade-in-up mobile-fix-title">
+            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-blue-500 tracking-tight animate-fade-in-up mobile-fix-title">
               Hello, <span className='text-white text-3xl font-medium mobile-fix-title-text'>Want to Build Readme? </span><span className='text-2xl text-yellow-600 font-medium mobile-fix-title-text'>Choose your Repo!!!</span>
             </div>
           </div>
