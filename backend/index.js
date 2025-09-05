@@ -9,17 +9,15 @@ dotenv.config()
 
 const app = express();
 
-const PORT = process.env.PORT || 3000; // Use PORT 3000 as confirmed by your server output
+const PORT = process.env.PORT || 3000; 
 
-// Correct middleware order:
 app.use(express.json());
 app.use(cookieParser());
 
-// Corrected and more explicit CORS configuration
 app.use(cors({
-    origin: "http://localhost:5173", // Your frontend's origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
+    origin: "http://localhost:5173", 
+    methods: ["GET", "POST", "PUT", "DELETE"], 
+    allowedHeaders: ["Content-Type", "Authorization"], 
     credentials: true,
 }));
 

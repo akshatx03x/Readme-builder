@@ -89,7 +89,6 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 flex items-center justify-center p-4 font-inter relative overflow-hidden">
-      {/* Background radial gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -101,7 +100,6 @@ const App = () => {
       }}></div>
 
       <div className="bg-gray-900/40 backdrop-blur-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-3xl p-8 w-full max-w-md border border-gray-800/50 relative z-10 text-center">
-        {/* New Title and Tagline block */}
         <div className="mb-8">
           <h1 className="font-extrabold text-5xl italic tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-yellow-400">
             Gemscribe
@@ -154,11 +152,11 @@ const App = () => {
 
         <p className="text-center text-sm text-gray-400 mt-6">
           By signing in, you agree to our{' '}
-          <a href="#" className="text-cyan-300 hover:text-cyan-200 transition-colors duration-200">
+          <a className="text-cyan-300 hover:text-cyan-200 transition-colors duration-200">
             Terms of Service
           </a>{' '}
           and{' '}
-          <a href="#" className="text-cyan-300 hover:text-cyan-200 transition-colors duration-200">
+          <a className="text-cyan-300 hover:text-cyan-200 transition-colors duration-200">
             Privacy Policy
           </a>
         </p>

@@ -12,17 +12,15 @@ export const manualLogin = async (req, res) => {
     let user = await User.findOne({ email });
 
     if (!user) {
-      // Signup
       const hashedPassword = await bcrypt.hash(password, 10);
       user = await User.create({
-        name: fullName, // make sure your User model has "name"
+        name: fullName, 
         email,
         password: hashedPassword,
         provider: "manual",
         avatar: "https://example.com/default-avatar.png",
       });
     } else {
-      // Login
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
         return res.status(400).json({ message: "Invalid credentials" });
@@ -37,7 +35,7 @@ export const manualLogin = async (req, res) => {
       .status(200)
       .json({ success: true, user, token });
   } catch (error) {
-    console.error("❌ Manual login error backend:", error); // <--- important
+    console.error("Manual login error backend:", error); 
     res
       .status(500)
       .json({ success: false, message: "Server error", error: error.message });
@@ -141,32 +139,23 @@ export const getUser = async (req, res) => {
       error
     })
   }}
-  
-  // ... existing imports and functions ...
-
-// Fetch GitHub repos of logged-in user
 export const logout = async (req, res) => {
   try {
     res.clearCookie('token');
     res.status(200).json({ success: true, message: 'Logged out successfully' });
   } catch (error) {
-    console.error('❌ Logout error:', error);
+    console.error('Logout error:', error);
     res.status(500).json({ success: false, message: 'Server error', error: error.message });
   }
 };
 
 export const getRepos = async (req, res) => {
   try {
-    // 1. Get JWT from cookies
     const token = req.cookies.token;
     if (!token) {
       return res.status(403).json({ success: false, message: "Unauthorized" });
     }
-
-    // 2. Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    // 3. Find user with GitHub token
     const user = await User.findById(decoded.id).select("+githubToken");
     if (!user || !user.githubToken) {
       return res.status(400).json({
@@ -174,15 +163,12 @@ export const getRepos = async (req, res) => {
         message: "No GitHub token available. Please log in with GitHub.",
       });
     }
-
-    // 4. Call GitHub API
     const response = await fetch("https://api.github.com/user/repos?type=all", {
       headers: { Authorization: `token ${user.githubToken}` },
     });
 
     const repos = await response.json();
 
-    // 5. Send simplified repo data to frontend
     res.status(200).json({
       success: true,
       repos: repos.map((repo) => ({
@@ -193,7 +179,7 @@ export const getRepos = async (req, res) => {
       })),
     });
   } catch (error) {
-    console.error("❌ Error fetching repos:", error);
+    console.error("Error fetching repos:", error);
     res.status(500).json({
       success: false,
       message: "Server error",
