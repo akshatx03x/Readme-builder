@@ -20,8 +20,6 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: function() {;
-      },
     },
     provider: {
       type: String,
